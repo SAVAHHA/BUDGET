@@ -1,5 +1,5 @@
 ﻿BUGDETapp
-1.0.0.0
+
 
 winexe
 C#
@@ -12,7 +12,7 @@ TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\App.xaml
 31219506293
 
-7-1157816826
+5-1247401353
 1921654412462
 LoginWindow.xaml;RegistrationPage.xaml;RegistrationWindow.xaml;
 

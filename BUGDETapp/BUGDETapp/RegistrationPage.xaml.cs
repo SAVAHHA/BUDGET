@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,23 +14,13 @@ using System.Windows.Shapes;
 namespace BUGDETapp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для RegistrationPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegistrationPage : Page
     {
-        public MainWindow()
+        public RegistrationPage()
         {
             InitializeComponent();
-        }
-
-        private void cancelButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void loginButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
