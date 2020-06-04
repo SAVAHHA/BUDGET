@@ -6,14 +6,26 @@
         xmlns:local="clr-namespace:BUGDETapp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="incomeTemplate">
+            <StackPanel Margin="5">
+                <TextBlock FontSize="16" Text="{Binding Path=Sum}" HorizontalAlignment="Center" />
+                <TextBlock FontSize="16" Text="{Binding Path=Date}" HorizontalAlignment="Center" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    
     <TabControl>
         <TabItem Header="Доходы">
             <StackPanel>
                 <TextBlock Text="{x:Static local:App.UserLogin}"></TextBlock>
+
+                <ListView x:Name="incomeListView" ItemTemplate="{StaticResource incomeTemplate}"></ListView>
             </StackPanel>
         </TabItem>
         <TabItem Header="Расходы">
-            
+
+            <ListView x:Name="expenseListView" ItemTemplate="{StaticResource incomeTemplate}"></ListView>
         </TabItem>
         <TabItem Header="Отчет">
             
