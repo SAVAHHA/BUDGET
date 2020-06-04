@@ -1,0 +1,30 @@
+﻿<Window x:Class="BUGDETapp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BUGDETapp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Добро пожаловать!" FontSize="30" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0"></TextBlock>
+        <TextBlock Text="Логин: " Grid.Row="1" Grid.Column="0" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+
+        <TextBlock Text="Пароль: " Grid.Row="2" Grid.Column="0" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+
+        <Button x:Name="cancelButton" Content="Отмена" FontSize="20" Margin="20" Grid.Column="0" Grid.Row="3" Click="cancelButton_Click"></Button>
+        <Button x:Name="loginButton" Content="Войти" FontSize="20" Margin="20" Grid.Column="2" Grid.Row="3" Click="loginButton_Click"></Button>
+    </Grid>
+</Window>
