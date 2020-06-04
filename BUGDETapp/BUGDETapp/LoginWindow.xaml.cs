@@ -32,7 +32,10 @@ namespace BUGDETapp
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-
+            App.UserLogin = loginTextBox.Text;
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void registrationButton_Click(object sender, RoutedEventArgs e)

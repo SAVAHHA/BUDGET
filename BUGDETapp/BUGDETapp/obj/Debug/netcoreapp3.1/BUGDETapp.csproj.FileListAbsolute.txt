@@ -16,7 +16,7 @@ C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcorea
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\BUGDETapp.genruntimeconfig.cache
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\LoginWindow.g.cs
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\LoginWindow.baml
-C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\RegistrationPage.g.cs
-C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\RegistrationPage.baml
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\RegistrationWindow.g.cs
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\RegistrationWindow.baml
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\MainWindow.baml
