@@ -37,7 +37,7 @@ namespace BUGDETapp
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
             string login = loginTextBox.Text;
-            string password = passwordTextBox.Text;
+            string password = passwordTextBox.Password;
 
             string connectionString = @"Data Source=SAVAHHA\SQLEXPRESS01;Initial Catalog=BUDGET;Integrated Security=True";
             SqlConnection sqlConnection = new SqlConnection(connectionString);
@@ -68,14 +68,14 @@ namespace BUGDETapp
                     else
                     {
                         MessageBox.Show("Неправильный пароль, попробуйте снова");
-                        passwordTextBox.Text = "";
+                        passwordTextBox.Password = "";
                     }
                 }
             }
             else
             {
                 MessageBox.Show("Пользователя с таким логином не существует");
-                passwordTextBox.Text = "";
+                passwordTextBox.Password = "";
                 loginTextBox.Text = "";
             }
             sqlConnection.Close();
