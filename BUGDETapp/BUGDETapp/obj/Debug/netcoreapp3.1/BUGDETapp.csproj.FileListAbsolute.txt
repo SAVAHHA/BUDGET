@@ -20,3 +20,11 @@ C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcorea
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\RegistrationWindow.baml
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\BUGDETapp.csprojAssemblyReference.cache
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\BUGDETapp.csproj.CopyComplete

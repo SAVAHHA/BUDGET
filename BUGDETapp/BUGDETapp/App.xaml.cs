@@ -14,5 +14,8 @@ namespace BUGDETapp
     public partial class App : Application
     {
         public static string UserLogin { get; set; }
+        public static int UserID { get; set; }
+        public static string UserName { get; set; }
+        public static string UserPassword { get; set; }
     }
 }
