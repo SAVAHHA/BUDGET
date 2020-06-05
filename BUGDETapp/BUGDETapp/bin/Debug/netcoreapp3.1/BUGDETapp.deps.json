@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v3.1": {
       "BUGDETapp/1.0.0": {
         "dependencies": {
-          "System.Data.SqlClient": "4.8.1"
+          "Syncfusion.SfChart.WPF": "18.1.0.55",
+          "System.Data.SqlClient": "4.8.1",
+          "System.Windows.Controls.DataVisualization.Toolkit": "4.0.0"
         },
         "runtime": {
           "BUGDETapp.dll": {}
@@ -55,6 +57,25 @@
           }
         }
       },
+      "Syncfusion.Licensing/18.1.0.55": {
+        "runtime": {
+          "lib/netcoreapp3.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "18.1.0.55",
+            "fileVersion": "18.1.0.55"
+          }
+        }
+      },
+      "Syncfusion.SfChart.WPF/18.1.0.55": {
+        "dependencies": {
+          "Syncfusion.Licensing": "18.1.0.55"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Syncfusion.SfChart.WPF.dll": {
+            "assemblyVersion": "18.1300.0.55",
+            "fileVersion": "18.1300.0.55"
+          }
+        }
+      },
       "System.Data.SqlClient/4.8.1": {
         "dependencies": {
           "Microsoft.Win32.Registry": "4.7.0",
@@ -88,7 +109,15 @@
           "System.Security.Principal.Windows": "4.7.0"
         }
       },
-      "System.Security.Principal.Windows/4.7.0": {}
+      "System.Security.Principal.Windows/4.7.0": {},
+      "System.Windows.Controls.DataVisualization.Toolkit/4.0.0": {
+        "runtime": {
+          "lib/net40-Client/System.Windows.Controls.DataVisualization.Toolkit.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      }
     }
   },
   "libraries": {
@@ -139,6 +168,20 @@
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
     },
+    "Syncfusion.Licensing/18.1.0.55": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sBfti5z/b8+ahF8hFJqRNQtPRiCH4FJ3t0MGuHG8FlLxN5dQsdkKSe9I2qIDbmcbTLUEY6AshYYs5pI011Gwog==",
+      "path": "syncfusion.licensing/18.1.0.55",
+      "hashPath": "syncfusion.licensing.18.1.0.55.nupkg.sha512"
+    },
+    "Syncfusion.SfChart.WPF/18.1.0.55": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Hq2flbO0w1D68zt8SM6qdYDVI0z+AZu12npHG11v1AK63iklO+aMsZhqQxHliuRD07YU7OFToMk8eccjqUa7Tg==",
+      "path": "syncfusion.sfchart.wpf/18.1.0.55",
+      "hashPath": "syncfusion.sfchart.wpf.18.1.0.55.nupkg.sha512"
+    },
     "System.Data.SqlClient/4.8.1": {
       "type": "package",
       "serviceable": true,
@@ -159,6 +202,13 @@
       "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
+    },
+    "System.Windows.Controls.DataVisualization.Toolkit/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UqBiEXh2YmYdJE5BpJC9c1I+AzcmFlzZ1h7fn5iU2lhOLn3snSxqf46/2XHpoJetJBN4HAavqG77wzaBi5jxfQ==",
+      "path": "system.windows.controls.datavisualization.toolkit/4.0.0",
+      "hashPath": "system.windows.controls.datavisualization.toolkit.4.0.0.nupkg.sha512"
     }
   }
 }

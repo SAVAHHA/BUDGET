@@ -8,7 +8,7 @@ namespace BUGDETapp.Classes
     {
         public int ID { get; set; }
         public DateTime Date { get; set; }
-        public float Sum { get; set; }
+        public int Sum { get; set; }
         public int UserID { get; set; }
         public int TypeID { get; set; }
     }

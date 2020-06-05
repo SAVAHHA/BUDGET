@@ -10,7 +10,6 @@ C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcorea
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\BUGDETapp.g.resources
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\BUGDETapp.AssemblyInfoInputs.cache
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\BUGDETapp.AssemblyInfo.cs
-C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\BUGDETapp.csproj.CoreCompileInputs.cache
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\BUGDETapp.dll
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\BUGDETapp.pdb
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\BUGDETapp.genruntimeconfig.cache
@@ -28,3 +27,7 @@ C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\bin\Debug\netcorea
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\BUGDETapp.csproj.CopyComplete
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\bin\Debug\netcoreapp3.1\System.Windows.Controls.DataVisualization.Toolkit.dll
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\obj\Debug\netcoreapp3.1\BUGDETapp.csproj.CoreCompileInputs.cache
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\bin\Debug\netcoreapp3.1\Syncfusion.Licensing.dll
+C:\Users\Anna\source\repos\SAVAHHA\BUDGET\BUGDETapp\BUGDETapp\bin\Debug\netcoreapp3.1\Syncfusion.SfChart.WPF.dll

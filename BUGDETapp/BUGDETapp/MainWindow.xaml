@@ -4,6 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BUGDETapp"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        xmlns:charts="clr-namespace:Syncfusion;assembly=Syncfusion.Licensing"
+        xmlns:DV="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"  
+        xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
@@ -36,7 +40,25 @@
             </StackPanel>
         </TabItem>
         <TabItem Header="Отчет">
-            
+            <ScrollViewer>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <chartingToolkit:Chart Height="262" HorizontalAlignment="Left" 
+  Name="ColumnIncomeChart" Title="Доходы"  Width="400">
+                            <chartingToolkit:ColumnSeries DependentValuePath="Value" 
+  IndependentValuePath="Key" ItemsSource="{Binding}" />
+                        </chartingToolkit:Chart>
+
+                        <chartingToolkit:Chart Height="262" HorizontalAlignment="Right" 
+   Name="ColumnExpenseChart" Title="Расходы" Width="400">
+                            <chartingToolkit:ColumnSeries DependentValuePath="Value" 
+  IndependentValuePath="Key" ItemsSource="{Binding}" />
+                        </chartingToolkit:Chart>
+                    </StackPanel>
+                   
+                </StackPanel>
+            </ScrollViewer>
+           
         </TabItem>
         <TabItem Header="Профиль">
             <StackPanel>

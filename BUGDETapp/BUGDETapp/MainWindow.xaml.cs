@@ -33,6 +33,7 @@ namespace BUGDETapp
             GetData();
             incomeListView.ItemsSource = Incomes.IncomeList;
             expenseListView.ItemsSource = Expenses.ExpenseList;
+            showColumnChart();
         }
 
         public void GetData()
@@ -42,7 +43,7 @@ namespace BUGDETapp
             string connectionString = @"Data Source=SAVAHHA\SQLEXPRESS01;Initial Catalog=BUDGET;Integrated Security=True";
             SqlConnection sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
-            SqlCommand command = new SqlCommand("SELECT * FROM expenses WHERE user_id=@userId", sqlConnection);
+            SqlCommand command = new SqlCommand("SELECT * FROM expenses WHERE user_id=@userId ORDER BY date DESC", sqlConnection);
             command.Parameters.AddWithValue("@userId", App.UserID);
             SqlDataReader sqlDataReader = command.ExecuteReader();
             if (sqlDataReader.HasRows)
@@ -62,7 +63,7 @@ namespace BUGDETapp
             string connectionString2 = @"Data Source=SAVAHHA\SQLEXPRESS01;Initial Catalog=BUDGET;Integrated Security=True";
             SqlConnection sqlConnection2 = new SqlConnection(connectionString2);
             sqlConnection2.Open();
-            SqlCommand command2 = new SqlCommand("SELECT * FROM income WHERE user_id=@userId", sqlConnection2);
+            SqlCommand command2 = new SqlCommand("SELECT * FROM income WHERE user_id=@userId ORDER BY date DESC", sqlConnection2);
             command2.Parameters.AddWithValue("@userId", App.UserID);
             SqlDataReader sqlDataReader2 = command2.ExecuteReader();
             if (sqlDataReader2.HasRows)
@@ -210,6 +211,27 @@ namespace BUGDETapp
         private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void showColumnChart()
+        {
+            List<KeyValuePair<string, int>> valueListIncome = new List<KeyValuePair<string, int>>();
+
+            foreach (var inc in Incomes.IncomeList)
+            {
+                valueListIncome.Add(new KeyValuePair<string, int>(inc.Date.Date.ToString(), inc.Sum));
+            }
+            ColumnIncomeChart.DataContext = valueListIncome;
+
+
+            List<KeyValuePair<string, int>> valueListExpense = new List<KeyValuePair<string, int>>();
+
+            foreach (var exp in Expenses.ExpenseList)
+            {
+                valueListExpense.Add(new KeyValuePair<string, int>(exp.Date.Date.ToString(), exp.Sum));
+            }
+            ColumnExpenseChart.DataContext = valueListExpense;
+
         }
     }
 }
