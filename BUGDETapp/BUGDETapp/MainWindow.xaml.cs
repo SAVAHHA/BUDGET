@@ -178,7 +178,7 @@ namespace BUGDETapp
             textBox = new TextBox();
             datePicker = new DatePicker();
             comboBox = new ComboBox();
-            saveButton = new Button { Content = "Сохранить"};
+            saveButton = new Button { Content = "Сохранить" };
             saveButton.Click += SaveIncomeButton_Click;
             comboBox.ItemsSource = Kinds.KindStrings;
             addIncomeStackPanel.Children.Add(new Label { Content = "Введите сумму" });
@@ -187,6 +187,7 @@ namespace BUGDETapp
             addIncomeStackPanel.Children.Add(datePicker);
             addIncomeStackPanel.Children.Add(new Label { Content = "Выберете тип зачисления" });
             addIncomeStackPanel.Children.Add(comboBox);
+            addIncomeStackPanel.Children.Add(new Label { Content = " " });
             addIncomeStackPanel.Children.Add(saveButton);
 
         }
@@ -220,6 +221,7 @@ namespace BUGDETapp
             GetData();
             incomeListView.ItemsSource = Incomes.IncomeListDesc;
             expenseListView.ItemsSource = Expenses.ExpenseListDesc;
+            addIncomeButton.IsEnabled = true;
         }
 
         private void addExpenseButton_Click(object sender, RoutedEventArgs e)
@@ -237,6 +239,7 @@ namespace BUGDETapp
             addExpensesStackPanel.Children.Add(datePicker);
             addExpensesStackPanel.Children.Add(new Label { Content = "Выберете тип расходов" });
             addExpensesStackPanel.Children.Add(comboBox);
+            addExpensesStackPanel.Children.Add(new Label { Content = " " });
             addExpensesStackPanel.Children.Add(saveButton);
         }
 
@@ -269,6 +272,7 @@ namespace BUGDETapp
             GetData();
             incomeListView.ItemsSource = Incomes.IncomeListDesc;
             expenseListView.ItemsSource = Expenses.ExpenseListDesc;
+            addExpenseButton.IsEnabled = true;
         }
 
         private void editButton_Click(object sender, RoutedEventArgs e)

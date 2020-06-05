@@ -20,11 +20,11 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="Добро пожаловать!" FontSize="30" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-        <TextBlock Text="Логин: " Grid.Row="1" Grid.Column="0" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
-        <TextBox x:Name="loginTextBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="20" TextAlignment="Justify"></TextBox>
+        <TextBlock Text="Логин: " Grid.Row="1" Grid.Column="0" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+        <TextBox x:Name="loginTextBox" Grid.Row="1" Grid.Column="1" FontSize="20" Grid.ColumnSpan="2" Margin="20" TextAlignment="Justify"></TextBox>
 
-        <TextBlock Text="Пароль: " Grid.Row="2" Grid.Column="0" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
-        <PasswordBox x:Name="passwordTextBox"  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="20" ></PasswordBox>
+        <TextBlock Text="Пароль: " Grid.Row="2" Grid.Column="0" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+        <PasswordBox x:Name="passwordTextBox"  Grid.Row="2" Grid.Column="1" FontSize="20"  Grid.ColumnSpan="2" Margin="20" ></PasswordBox>
 
         <Button x:Name="cancelButton" Content="Отмена" FontSize="20" Margin="20" Grid.Column="0" Grid.Row="3" Click="cancelButton_Click"></Button>
         <Button x:Name="registrationButton" Content="Зарегистрироваться" FontSize="20" Margin="20" Grid.Column="1" Grid.Row="3" Click="registrationButton_Click"></Button>

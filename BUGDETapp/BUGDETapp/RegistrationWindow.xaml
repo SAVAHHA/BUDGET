@@ -25,9 +25,9 @@
         <TextBlock Text="Ваш логин: " FontSize="20" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
         <TextBlock Text="Ваше пароль: " FontSize="20" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
 
-        <TextBox x:Name="nameTextBox" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1" Margin="20"></TextBox>
-        <TextBox x:Name="loginTextBox" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1" Margin="20"></TextBox>
-        <TextBox x:Name="passwordTextBox" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1" Margin="20"></TextBox>
+        <TextBox x:Name="nameTextBox" Grid.Row="1" Grid.ColumnSpan="2" FontSize="20" Grid.Column="1" Margin="20"></TextBox>
+        <TextBox x:Name="loginTextBox" Grid.Row="2" Grid.ColumnSpan="2" FontSize="20" Grid.Column="1" Margin="20"></TextBox>
+        <TextBox x:Name="passwordTextBox" Grid.Row="3" Grid.ColumnSpan="2" FontSize="20" Grid.Column="1" Margin="20"></TextBox>
 
         <Button x:Name="loginButton" Content="Зарегистрироваться" Margin="10" Grid.Column="3" Grid.Row="4" Click="loginButton_Click"></Button>
     </Grid>
