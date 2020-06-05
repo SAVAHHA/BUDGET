@@ -26,6 +26,7 @@ namespace BUGDETapp
         public DatePicker datePicker { get; set; }
         public ComboBox comboBox { get; set; }
         public Button saveButton { get; set; }
+        public Button saveChangesButton { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -176,6 +177,39 @@ namespace BUGDETapp
             GetData();
             incomeListView.ItemsSource = Incomes.IncomeList;
             expenseListView.ItemsSource = Expenses.ExpenseList;
+        }
+
+        private void editButton_Click(object sender, RoutedEventArgs e)
+        {
+            loginTextBox.IsReadOnly = false;
+            passwordTextBox.IsReadOnly = false;
+            saveChangesButton = new Button { Content = "Сохранить" };
+            saveChangesButton.Click += SaveChangesButton_Click;
+            saveButtonStackPanel.Children.Add(saveChangesButton);
+        }
+
+        private void SaveChangesButton_Click(object sender, RoutedEventArgs e)
+        {
+            string newlogin = loginTextBox.Text;
+            string newpassword = passwordTextBox.Text;
+            App.UserLogin = newlogin;
+            App.UserPassword = newpassword;
+            string connectionString = @"Data Source=SAVAHHA\SQLEXPRESS01;Initial Catalog=BUDGET;Integrated Security=True";
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+            SqlCommand command = new SqlCommand("UPDATE client SET login=@newLogin, pass=@newPass WHERE user_id=@id", sqlConnection);
+            command.Parameters.AddWithValue("@id", App.UserID);
+            command.Parameters.AddWithValue("@newLogin", newlogin);
+            command.Parameters.AddWithValue("@newPass", newpassword);
+            command.ExecuteNonQuery();
+            sqlConnection.Close();
+            Task.Delay(200);
+            saveButtonStackPanel.Children.Clear();
+        }
+
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

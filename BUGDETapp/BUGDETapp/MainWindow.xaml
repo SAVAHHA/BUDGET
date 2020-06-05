@@ -39,7 +39,17 @@
             
         </TabItem>
         <TabItem Header="Профиль">
-            
+            <StackPanel>
+                <Label Content="{x:Static local:App.UserName }" HorizontalAlignment="Center"></Label>
+                <Label Content="Логин: " HorizontalAlignment="Center"></Label>
+                <TextBox Text="{x:Static local:App.UserLogin}" IsReadOnly="True" x:Name="loginTextBox" HorizontalAlignment="Center"></TextBox>
+                <Label Content="Пароль: " HorizontalAlignment="Center"></Label>
+                <TextBox Text="{x:Static local:App.UserPassword}" IsReadOnly="True" x:Name="passwordTextBox" HorizontalAlignment="Center"></TextBox>
+                <StackPanel x:Name="saveButtonStackPanel"></StackPanel>
+
+                <Button x:Name="editButton" Content="Редактировать" HorizontalAlignment="Center" Margin="20" Click="editButton_Click"></Button>
+                <Button x:Name="logoutButton" Content="Выйти из приложения" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Click="logoutButton_Click"></Button>
+            </StackPanel>
         </TabItem>
     </TabControl>
 </Window>
