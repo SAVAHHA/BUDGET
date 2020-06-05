@@ -19,13 +19,21 @@
         <TabItem Header="Доходы">
             <StackPanel>
                 <TextBlock Text="{x:Static local:App.UserLogin}"></TextBlock>
+                <Button x:Name="addIncomeButton" Content="+" Click="addIncomeButton_Click" FontSize="20"></Button>
+
+                <StackPanel x:Name="addIncomeStackPanel"></StackPanel>
 
                 <ListView x:Name="incomeListView" ItemTemplate="{StaticResource incomeTemplate}"></ListView>
             </StackPanel>
         </TabItem>
         <TabItem Header="Расходы">
+            <StackPanel>
+                <Button x:Name="addExpenseButton" Content="+" Click="addExpenseButton_Click" FontSize="20"></Button>
 
-            <ListView x:Name="expenseListView" ItemTemplate="{StaticResource incomeTemplate}"></ListView>
+                <StackPanel x:Name="addExpensesStackPanel"></StackPanel>
+
+                <ListView x:Name="expenseListView" ItemTemplate="{StaticResource incomeTemplate}"></ListView>
+            </StackPanel>
         </TabItem>
         <TabItem Header="Отчет">
             
