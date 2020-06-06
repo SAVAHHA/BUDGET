@@ -7,11 +7,11 @@ namespace BUGDETapp.Classes
 {
     public static class Types
     {
-        public static IList<Type> TypeList { get; set; }
+        public static IList<Type1> TypeList { get; set; }
         public static IList<string> TypeStrings { get; set; }
         static Types()
         {
-            TypeList = new List<Type>();
+            TypeList = new List<Type1>();
             TypeStrings = new List<string>();
 
             string connectionString = @"Data Source=SAVAHHA\SQLEXPRESS01;Initial Catalog=BUDGET;Integrated Security=True";
@@ -26,7 +26,7 @@ namespace BUGDETapp.Classes
                     object id = sqlDataReader.GetValue(0);
                     object name = sqlDataReader.GetValue(1);
 
-                    TypeList.Add(new Type { ID = Convert.ToInt32(id.ToString()), Name = name.ToString() });
+                    TypeList.Add(new Type1 { ID = Convert.ToInt32(id.ToString()), Name = name.ToString() });
                     TypeStrings.Add(name.ToString());
                 }
             }

@@ -22,6 +22,8 @@ namespace BUGDETapp
     /// 
     public partial class MainWindow : Window
     {
+        public static List<Expense> CurrentExpenses { get; set; }
+        public static List<Income> CurrentIncomes { get; set; }
         public TextBox textBox { get; set; }
         public DatePicker datePicker { get; set; }
         public ComboBox comboBox { get; set; }
@@ -31,8 +33,12 @@ namespace BUGDETapp
         {
             InitializeComponent();
             GetData();
+            CurrentExpenses = new List<Expense>();
+            CurrentIncomes = new List<Income>();
             incomeListView.ItemsSource = Incomes.IncomeListDesc;
             expenseListView.ItemsSource = Expenses.ExpenseListDesc;
+            kindsIncomeComboBox.ItemsSource = Kinds.KindStrings;
+            typesExpenseComboBox.ItemsSource = Types.TypeStrings;
             showColumnChart();
         }
 
@@ -314,7 +320,7 @@ namespace BUGDETapp
 
             foreach (var inc in Incomes.IncomeListAsc)
             {
-                valueListIncome.Add(new KeyValuePair<string, int>(inc.Date.ToString(), inc.Sum));
+                valueListIncome.Add(new KeyValuePair<string, int>(inc.Date.ToString().Split()[0], inc.Sum));
             }
             ColumnIncomeChart.DataContext = valueListIncome;
 
@@ -323,7 +329,7 @@ namespace BUGDETapp
 
             foreach (var exp in Expenses.ExpenseListAsc)
             {
-                valueListExpense2.Add(new KeyValuePair<string, int>(exp.Date.Date.ToString(), exp.Sum));
+                valueListExpense2.Add(new KeyValuePair<string, int>(exp.Date.Date.ToString().Split()[0], exp.Sum));
             }
             ColumnExpenseChart.DataContext = valueListExpense2;
 
@@ -332,9 +338,363 @@ namespace BUGDETapp
 
             foreach (var del in Deltas.DeltaList)
             {
-                valueListExpense3.Add(new KeyValuePair<string, int>(del.Date.Date.ToString(), del.Sum));
+                valueListExpense3.Add(new KeyValuePair<string, int>(del.Date.Date.ToString().Split()[0], del.Sum));
             }
             ColumnDeltaChart.DataContext = valueListExpense3;
+        }
+
+        private void groupByDateExpenseButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var dateStart = groupByDateExpenseDatePickerStart.SelectedDate;
+                var dateEnd = groupByDateExpenseDatePickerStop.SelectedDate;
+                var SortedExpenses = new List<Expense>();
+
+                foreach (var exp in Expenses.ExpenseListAsc)
+                {
+                    if (exp.Date <= dateEnd & exp.Date >= dateStart)
+                    {
+                        SortedExpenses.Add(exp);
+                    }
+                }
+                CurrentExpenses = new List<Expense>();
+                CurrentExpenses = SortedExpenses;
+                List<KeyValuePair<string, int>> valueListExpense2 = new List<KeyValuePair<string, int>>();
+
+                foreach (var exp in SortedExpenses)
+                {
+                    valueListExpense2.Add(new KeyValuePair<string, int>(exp.Date.Date.ToString().Split()[0], exp.Sum));
+                }
+                ColumnExpenseChart.DataContext = valueListExpense2;
+                typesExpenseComboBox.Text = null;
+            }
+            catch
+            {
+                MessageBox.Show("Необходимо выбрать временной промежуток");
+            }
+        }
+
+        private void groupByDateIncomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var dateStart = groupByDateIncomeDatePickerStart.SelectedDate;
+                var dateEnd = groupByDateIncomeDatePickerStop.SelectedDate;
+                var SortedIncomes = new List<Income>();
+
+                foreach (var inc in Incomes.IncomeListAsc)
+                {
+                    if (inc.Date <= dateEnd & inc.Date >= dateStart)
+                    {
+                        SortedIncomes.Add(inc);
+                    }
+                }
+                CurrentIncomes = new List<Income>();
+                CurrentIncomes = SortedIncomes;
+                List<KeyValuePair<string, int>> valueListExpense2 = new List<KeyValuePair<string, int>>();
+
+                foreach (var inc in SortedIncomes)
+                {
+                    valueListExpense2.Add(new KeyValuePair<string, int>(inc.Date.Date.ToString().Split()[0], inc.Sum));
+                }
+                ColumnIncomeChart.DataContext = valueListExpense2;
+                kindsIncomeComboBox.Text = null;
+            }
+            catch
+            {
+                MessageBox.Show("Необходимо выбрать временной промежуток");
+            }
+        }
+
+        private void groupByDateButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var dateStart = groupByDateDeltaDatePickerStart.SelectedDate;
+                var dateEnd = groupByDateDeltaDatePickerStop.SelectedDate;
+                var SortedDeltas = new List<Delta>();
+
+                foreach (var del in Deltas.DeltaList)
+                {
+                    if (del.Date <= dateEnd & del.Date >= dateStart)
+                    {
+                        SortedDeltas.Add(del);
+                    }
+                }
+
+                List<KeyValuePair<string, int>> valueListExpense2 = new List<KeyValuePair<string, int>>();
+
+                foreach (var del in SortedDeltas)
+                {
+                    valueListExpense2.Add(new KeyValuePair<string, int>(del.Date.Date.ToString().Split()[0], del.Sum));
+                }
+                ColumnDeltaChart.DataContext = valueListExpense2;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Необходимо выбрать временной промежуток");
+            }
+        }
+
+        private void typesExpenseComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var typeName = typesExpenseComboBox.SelectedItem.ToString();
+            var type = new Type1();
+            foreach (var t in Types.TypeList)
+            {
+                if(t.Name == typeName)
+                {
+                    type = t;
+                }
+            }
+            if (CurrentExpenses.Count != 0)
+            {
+                var SortedExpenses = new List<Expense>();
+                foreach (var exp in CurrentExpenses)
+                {
+                    if (exp.TypeID == type.ID)
+                    {
+                        SortedExpenses.Add(exp);
+                    }
+                }
+                List<KeyValuePair<string, int>> valueListExpense2 = new List<KeyValuePair<string, int>>();
+
+                foreach (var exp in SortedExpenses)
+                {
+                    valueListExpense2.Add(new KeyValuePair<string, int>(exp.Date.Date.ToString().Split()[0], exp.Sum));
+                }
+                ColumnExpenseChart.DataContext = valueListExpense2;
+            }
+            else
+            {
+                var SortedExpenses = new List<Expense>();
+                foreach (var exp in Expenses.ExpenseListAsc)
+                {
+                    if (exp.TypeID == type.ID)
+                    {
+                        SortedExpenses.Add(exp);
+                    }
+                }
+                List<KeyValuePair<string, int>> valueListExpense2 = new List<KeyValuePair<string, int>>();
+
+                foreach (var exp in SortedExpenses)
+                {
+                    valueListExpense2.Add(new KeyValuePair<string, int>(exp.Date.Date.ToString().Split()[0], exp.Sum));
+                }
+                ColumnExpenseChart.DataContext = valueListExpense2;
+            }
+        }
+
+        private void kindsIncomeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                var kindName = kindsIncomeComboBox.SelectedItem.ToString();
+                var kind = new Kind();
+                foreach (var k in Kinds.KindList)
+                {
+                    if (k.Name == kindName)
+                    {
+                        kind = k;
+                    }
+                }
+                if (CurrentIncomes.Count != 0)
+                {
+                    var SortedIncomes = new List<Income>();
+                    foreach (var inc in CurrentIncomes)
+                    {
+                        if (inc.KindID == kind.ID)
+                        {
+                            SortedIncomes.Add(inc);
+                        }
+                    }
+                    List<KeyValuePair<string, int>> valueListExpense2 = new List<KeyValuePair<string, int>>();
+
+                    foreach (var exp in SortedIncomes)
+                    {
+                        valueListExpense2.Add(new KeyValuePair<string, int>(exp.Date.Date.ToString().Split()[0], exp.Sum));
+                    }
+                    ColumnIncomeChart.DataContext = valueListExpense2;
+                }
+                else
+                {
+                    var SortedIncomes = new List<Income>();
+                    foreach (var inc in Incomes.IncomeListAsc)
+                    {
+                        if (inc.KindID == kind.ID)
+                        {
+                            SortedIncomes.Add(inc);
+                        }
+                    }
+                    List<KeyValuePair<string, int>> valueListExpense2 = new List<KeyValuePair<string, int>>();
+
+                    foreach (var exp in SortedIncomes)
+                    {
+                        valueListExpense2.Add(new KeyValuePair<string, int>(exp.Date.Date.ToString().Split()[0], exp.Sum));
+                    }
+                    ColumnIncomeChart.DataContext = valueListExpense2;
+                }
+            }
+            catch
+            {
+
+            }
+           
+        }
+
+        private void clearIncomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            groupByDateIncomeDatePickerStart.Text = null;
+            groupByDateIncomeDatePickerStop.Text = null;
+            kindsIncomeComboBox.Text = null;
+            List<KeyValuePair<string, int>> valueListIncome = new List<KeyValuePair<string, int>>();
+
+            foreach (var inc in Incomes.IncomeListAsc)
+            {
+                valueListIncome.Add(new KeyValuePair<string, int>(inc.Date.ToString().Split()[0], inc.Sum));
+            }
+            ColumnIncomeChart.DataContext = valueListIncome;
+        }
+
+        private void clearExpensesButton_Click(object sender, RoutedEventArgs e)
+        {
+            groupByDateExpenseDatePickerStart.Text = null;
+            groupByDateExpenseDatePickerStop.Text = null;
+            typesExpenseComboBox.Text = null;
+            List<KeyValuePair<string, int>> valueListExpense2 = new List<KeyValuePair<string, int>>();
+
+            foreach (var exp in Expenses.ExpenseListAsc)
+            {
+                valueListExpense2.Add(new KeyValuePair<string, int>(exp.Date.Date.ToString().Split()[0], exp.Sum));
+            }
+            ColumnExpenseChart.DataContext = valueListExpense2;
+        }
+
+        private void clearDeltaButton_Click(object sender, RoutedEventArgs e)
+        {
+            groupByDateIncomeDatePickerStart.Text = null;
+            groupByDateIncomeDatePickerStop.Text = null;
+            List<KeyValuePair<string, int>> valueListExpense3 = new List<KeyValuePair<string, int>>();
+
+            foreach (var del in Deltas.DeltaList)
+            {
+                valueListExpense3.Add(new KeyValuePair<string, int>(del.Date.Date.ToString().Split()[0], del.Sum));
+            }
+            ColumnDeltaChart.DataContext = valueListExpense3;
+        }
+
+        private void typesExpenseButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var typeName = typesExpenseComboBox.SelectedItem.ToString();
+                var type = new Type1();
+                foreach (var t in Types.TypeList)
+                {
+                    if (t.Name == typeName)
+                    {
+                        type = t;
+                    }
+                }
+                if (CurrentExpenses.Count != 0)
+                {
+                    var SortedExpenses = new List<Expense>();
+                    foreach (var exp in CurrentExpenses)
+                    {
+                        if (exp.TypeID == type.ID)
+                        {
+                            SortedExpenses.Add(exp);
+                        }
+                    }
+                    List<KeyValuePair<string, int>> valueListExpense2 = new List<KeyValuePair<string, int>>();
+
+                    foreach (var exp in SortedExpenses)
+                    {
+                        valueListExpense2.Add(new KeyValuePair<string, int>(exp.Date.Date.ToString().Split()[0], exp.Sum));
+                    }
+                    ColumnExpenseChart.DataContext = valueListExpense2;
+                }
+                else
+                {
+                    var SortedExpenses = new List<Expense>();
+                    foreach (var exp in Expenses.ExpenseListAsc)
+                    {
+                        if (exp.TypeID == type.ID)
+                        {
+                            SortedExpenses.Add(exp);
+                        }
+                    }
+                    List<KeyValuePair<string, int>> valueListExpense2 = new List<KeyValuePair<string, int>>();
+
+                    foreach (var exp in SortedExpenses)
+                    {
+                        valueListExpense2.Add(new KeyValuePair<string, int>(exp.Date.Date.ToString().Split()[0], exp.Sum));
+                    }
+                    ColumnExpenseChart.DataContext = valueListExpense2;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Необходимо выбрать тип");
+            }
+        }
+
+        private void kindsIncomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            try
+            {
+                var kindName = kindsIncomeComboBox.SelectedItem.ToString();
+                var kind = new Kind();
+                foreach (var k in Kinds.KindList)
+                {
+                    if (k.Name == kindName)
+                    {
+                        kind = k;
+                    }
+                }
+                if (CurrentIncomes.Count != 0)
+                {
+                    var SortedIncomes = new List<Income>();
+                    foreach (var inc in CurrentIncomes)
+                    {
+                        if (inc.KindID == kind.ID)
+                        {
+                            SortedIncomes.Add(inc);
+                        }
+                    }
+                    List<KeyValuePair<string, int>> valueListExpense2 = new List<KeyValuePair<string, int>>();
+
+                    foreach (var exp in SortedIncomes)
+                    {
+                        valueListExpense2.Add(new KeyValuePair<string, int>(exp.Date.Date.ToString().Split()[0], exp.Sum));
+                    }
+                    ColumnIncomeChart.DataContext = valueListExpense2;
+                }
+                else
+                {
+                    var SortedIncomes = new List<Income>();
+                    foreach (var inc in Incomes.IncomeListAsc)
+                    {
+                        if (inc.KindID == kind.ID)
+                        {
+                            SortedIncomes.Add(inc);
+                        }
+                    }
+                    List<KeyValuePair<string, int>> valueListExpense2 = new List<KeyValuePair<string, int>>();
+
+                    foreach (var exp in SortedIncomes)
+                    {
+                        valueListExpense2.Add(new KeyValuePair<string, int>(exp.Date.Date.ToString().Split()[0], exp.Sum));
+                    }
+                    ColumnIncomeChart.DataContext = valueListExpense2;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Необходимо выбрать тип");
+            }
         }
     }
 }

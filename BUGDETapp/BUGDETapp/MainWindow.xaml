@@ -46,19 +46,57 @@
         <TabItem Header="Отчет">
             <ScrollViewer>
                 <StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <chartingToolkit:Chart Height="262" HorizontalAlignment="Left" Name="ColumnIncomeChart" Title="Доходы"  Width="400">
                             <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" />
                         </chartingToolkit:Chart>
 
+                        <StackPanel>
+                            <Label Content="Дата начала сортировки"></Label>
+                            <DatePicker x:Name="groupByDateIncomeDatePickerStart" Margin="10" MinWidth="70"></DatePicker>
+                            <Label Content="Дата окончание сортировки"></Label>
+                            <DatePicker x:Name="groupByDateIncomeDatePickerStop" Margin="10" MinWidth="70"></DatePicker>
+                            <Button x:Name="groupByDateIncomeButton" Content="Сортировка по дате" Margin="10,0,10,0" Click="groupByDateIncomeButton_Click"></Button>
+                            <ComboBox x:Name="kindsIncomeComboBox" Margin="10"></ComboBox>
+                            <Button x:Name="kindsIncomeButton" Content="Сортировка по типу зачисления" Margin="10" Click="kindsIncomeButton_Click"></Button>
+                            <Button x:Name="clearIncomeButton" Content="Очистить сортировку" Margin="10" Click="clearIncomeButton_Click"></Button>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <chartingToolkit:Chart Height="262" HorizontalAlignment="Right" Name="ColumnExpenseChart" Title="Расходы" Width="400">
                             <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" />
                         </chartingToolkit:Chart>
+
+                        <StackPanel>
+                            <Label Content="Дата начала сортировки"></Label>
+                            <DatePicker x:Name="groupByDateExpenseDatePickerStart" Margin="10" MinWidth="70"></DatePicker>
+                            <Label Content="Дата окончание сортировки"></Label>
+                            <DatePicker x:Name="groupByDateExpenseDatePickerStop" Margin="10" MinWidth="70"></DatePicker>
+                            <Button x:Name="groupByDateExpenseButton" Content="Сортировка по дате" Margin="10,0,10,0" Click="groupByDateExpenseButton_Click"></Button>
+                            <ComboBox x:Name="typesExpenseComboBox" Margin="10"></ComboBox>
+                            <Button x:Name="typesExpenseButton" Content="Сортировка по типу расходов" Margin="10" Click="typesExpenseButton_Click"></Button>
+                            <Button x:Name="clearExpensesButton" Content="Очистить сортировку" Margin="10" Click="clearExpensesButton_Click"></Button>
+                        </StackPanel>
                     </StackPanel>
 
-                    <chartingToolkit:Chart Height="262" HorizontalAlignment="Center" Name="ColumnDeltaChart" Title="Баланс" Width="400">
-                        <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" />
-                    </chartingToolkit:Chart>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <chartingToolkit:Chart Height="262" HorizontalAlignment="Center" Name="ColumnDeltaChart" Title="Баланс" Width="400">
+                            <chartingToolkit:ColumnSeries DependentValuePath="Value" IndependentValuePath="Key" ItemsSource="{Binding}" />
+                        </chartingToolkit:Chart>
+
+                        <StackPanel>
+                            <Label Content="Дата начала сортировки"></Label>
+                            <DatePicker x:Name="groupByDateDeltaDatePickerStart" Margin="10" MinWidth="70"></DatePicker>
+                            <Label Content="Дата окончание сортировки"></Label>
+                            <DatePicker x:Name="groupByDateDeltaDatePickerStop" Margin="10" MinWidth="70"></DatePicker>
+                            <Button x:Name="groupByDateButton" Content="Сортировка по дате" Margin="10,0,10,0" Click="groupByDateButton_Click"></Button>
+                            <Button x:Name="clearDeltaButton" Content="Очистить сортировку" Margin="10" Click="clearDeltaButton_Click"></Button>
+                        </StackPanel>
+                    </StackPanel>
+
+                   
+                    
                 </StackPanel>
             </ScrollViewer>
            
